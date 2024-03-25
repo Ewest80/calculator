@@ -1,0 +1,32 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --background-clr: #f6f6f6;
+  --calculator-clr: #2b2a2a;
+  --border-clr: #000000;
+  --light-shadow: #333333;
+  --dark-shadow: #000000;
+  --btn-shadow: #080808;
+  --display-clr: #111111;
+  --operator-clr: #d49218;
+  --operator-hover: #b47d17;
+  --operator-active: #a57315;
+  --number-clr: #585858;
+  --number-hover: #464646;
+  --number-active: #3d3d3d;
+  --del-clr: #888888;
+  --del-hover: #727272;
+  --del-active: #666666;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  background-color: var(--background-clr);
+}
