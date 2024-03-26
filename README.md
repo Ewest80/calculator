@@ -10,8 +10,8 @@ and I will style the calculator to look like a physical calculator.
 - Clear button to clear the display.
 - Delete button to delete the last digit entered.
 - Keyboard support for all buttons.
-    - Backspace for delete.
-    - Enter for equals.
+    - Backspace and Del key for delete.
+    - Enter and = key for equals.
     - Escape for clear.
     - Numbers and operators for their respective buttons.
 - All operations will be performed in the order they are entered, not necessarily following the order of operations.
