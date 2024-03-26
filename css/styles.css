@@ -48,7 +48,7 @@ body {
   background-color: var(--calculator-clr);
   border: 2px solid var(--border-clr);
   border-radius: 10px;
-
+  box-shadow: 10px 10px 20px var(--light-shadow);
 }
 
 .calculator .output {
