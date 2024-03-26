@@ -26,6 +26,10 @@ function divide(num1, num2) {
     return num1 / num2;
 }
 
+function notValid() {
+    return isNaN(Number(currentOutput.textContent) && !(currentOutput.textContent === '.'));
+}
+
 function operate(num1, operator, num2) {
     num1 = Number(num1);
     num2 = Number(num2);
@@ -43,7 +47,9 @@ function operate(num1, operator, num2) {
     }
 }
 
+
 function appendNumber(number) {
+    if (notValid()) return;
     if (number === '.' && currentOutput.textContent.includes('.')) return;
 
     if (currentOutput.textContent === '0' && !(number === '.')) {
@@ -54,19 +60,20 @@ function appendNumber(number) {
     }
 }
 
-
-function clear() {
+function setOperator(newOperator) {
+    if (operator !== null) {
+        calculate();
+    }
+    operand1 = currentOutput.textContent;
+    operator = newOperator;
     currentOutput.textContent = '0';
-    previousOutput.textContent = '';
-    operand1 = '';
-    operand2 = '';
-    operator = null;
+    previousOutput.textContent = `${operand1} ${operator}`;
 }
 
 function calculate() {
-    if (operand1 === '' || operand2 === '' || operator === null) return;
+    if (operator === null) return;
     if (currentOutput.textContent === '0' && operator === '/') {
-        previousOutput.textContent = 'WHAT HAVE YOU DONE!?! ... Press AC';
+        previousOutput.textContent = 'WHY!?! ... Press AC';
         currentOutput.textContent = 'BOOM!';
         return;
     }
@@ -77,15 +84,28 @@ function calculate() {
     operator = null;
 }
 
+function clear() {
+    currentOutput.textContent = '0';
+    previousOutput.textContent = '';
+    operand1 = '';
+    operand2 = '';
+    operator = null;
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.getAttribute('data-number'));
     });
 });
 
-equalsButton.addEventListener('click', calculate);
-allClearButton.addEventListener('click', clear);
+operatorButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        setOperator(button.getAttribute('data-operator'));
+    });
+});
+
 deleteButton.addEventListener('click', () => {
+    if (notValid()) return;
     if (currentOutput.textContent.length === 1) {
         currentOutput.textContent = '0';
     }
@@ -93,3 +113,5 @@ deleteButton.addEventListener('click', () => {
         currentOutput.textContent = currentOutput.textContent.slice(0, -1);
     }
 });
+allClearButton.addEventListener('click', clear);
+equalsButton.addEventListener('click', calculate);
