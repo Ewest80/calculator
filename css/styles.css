@@ -85,7 +85,7 @@ body {
 }
 
 /** Button **/
-.btn {
+.buttons .btn {
   width: 80px;
   height: 80px;
   cursor: pointer;
@@ -96,5 +96,41 @@ body {
   background-color: var(--number-clr);
   color: var(--font-clr);
   box-shadow: 3px 3px 5px var(--btn-shadow);
- 
+}
+
+.buttons .btn:hover {
+  background-color: var(--number-hover);
+}
+
+.buttons .btn:active {
+  background-color: var(--number-active);
+  transform: translateY(2px);
+}
+
+.buttons .btn-operator {
+  background-color: var(--operator-clr);
+}
+
+.buttons .btn-operator:hover {
+  background-color: var(--operator-hover);
+}
+
+.buttons .btn-operator:active {
+  background-color: var(--operator-active);
+}
+
+.buttons .btn-light {
+  background-color: var(--del-clr);
+}
+
+.buttons .btn-light:hover {
+  background-color: var(--del-hover);
+}
+
+.buttons .btn-light:active {
+  background-color: var(--del-active);
+}
+
+.buttons .btn-wide {
+  width: 170px;
 }
