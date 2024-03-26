@@ -56,7 +56,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-end;
-  height: 100px;
+  height: 110px;
   width: 356px;
   border: 2px solid var(--border-clr);
   border-radius: 8px;
@@ -73,7 +73,7 @@ body {
 }
 
 .calculator .current-output {
-  font-size: 40px;
+  font-size: 36px;
 }
 
 .calculator .buttons {
