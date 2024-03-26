@@ -93,6 +93,16 @@ function clear() {
     operator = null;
 }
 
+function deleteLast() {
+    if (notValid()) return;
+    if (currentOutput.textContent.length === 1) {
+        currentOutput.textContent = '0';
+    }
+    else {
+        currentOutput.textContent = currentOutput.textContent.slice(0, -1);
+    }
+}
+
 numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         appendNumber(button.getAttribute('data-number'));
@@ -105,14 +115,26 @@ operatorButtons.forEach(button => {
     });
 });
 
-deleteButton.addEventListener('click', () => {
-    if (notValid()) return;
-    if (currentOutput.textContent.length === 1) {
-        currentOutput.textContent = '0';
-    }
-    else {
-        currentOutput.textContent = currentOutput.textContent.slice(0, -1);
-    }
-});
+deleteButton.addEventListener('click', deleteLast);
 allClearButton.addEventListener('click', clear);
 equalsButton.addEventListener('click', calculate);
+
+window.addEventListener('keydown', (event) => {
+    const key = event.key;
+
+    if ((key >= '0' && key <= '9') || key === '.') {
+        appendNumber(key);
+    }
+    else if (['/', '*', '-', '+'].includes(key)) {
+        setOperator(key);
+    }
+    else if (key === 'Enter' || key === '=') {
+        calculate();
+    }
+    else if (key === 'Backspace') {
+        deleteLast();
+    }
+    else if (key === 'Escape') {
+        clear();
+    }
+});
