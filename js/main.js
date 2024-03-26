@@ -61,6 +61,7 @@ function appendNumber(number) {
 }
 
 function setOperator(newOperator) {
+    if (notValid()) return;
     if (operator !== null) {
         calculate();
     }
@@ -71,7 +72,7 @@ function setOperator(newOperator) {
 }
 
 function calculate() {
-    if (operator === null) return;
+    if (operator === null || notValid()) return;
     if (currentOutput.textContent === '0' && operator === '/') {
         previousOutput.textContent = 'WHY!?! ... Press AC';
         currentOutput.textContent = 'BOOM!';
