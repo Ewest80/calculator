@@ -41,6 +41,12 @@ body {
   min-height: 100vh;
 }
 
+.main .info {
+  font-size: 18px;
+  font-style: italic;
+  margin-top: 20px;
+}
+
 /** Calculator **/
 .calculator {
   width: 400px;
