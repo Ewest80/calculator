@@ -62,17 +62,19 @@ function appendNumber(number) {
 
 function setOperator(newOperator) {
     if (notValid()) return;
-    if (operator !== null) {
-        calculate();
+    if (currentOutput.textContent !== '') {
+        if (operator !== null) {
+            calculate();
+        }
+        operand1 = currentOutput.textContent;
+        operator = newOperator;
+        currentOutput.textContent = '';
+        previousOutput.textContent = `${operand1} ${operator}`;
     }
-    operand1 = currentOutput.textContent;
-    operator = newOperator;
-    currentOutput.textContent = '0';
-    previousOutput.textContent = `${operand1} ${operator}`;
 }
 
 function calculate() {
-    if (operator === null || notValid()) return;
+    if (currentOutput.textContent === '' || operator === null || notValid()) return;
     if (currentOutput.textContent === '0' && operator === '/') {
         previousOutput.textContent = 'WHY!?! ... Press AC';
         currentOutput.textContent = 'BOOM!';
