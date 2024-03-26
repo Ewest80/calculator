@@ -27,7 +27,7 @@ function divide(num1, num2) {
 }
 
 function notValid() {
-    return isNaN(Number(currentOutput.textContent) && !(currentOutput.textContent === '.'));
+    return isNaN(+currentOutput.textContent) && !(currentOutput.textContent === '.');
 }
 
 function operate(num1, operator, num2) {
@@ -52,7 +52,7 @@ function appendNumber(number) {
     if (notValid()) return;
     if (number === '.' && currentOutput.textContent.includes('.')) return;
 
-    if (currentOutput.textContent === '0' && !(number === '.')) {
+    if ((currentOutput.textContent === '0') && !(number === '.')) {
         currentOutput.textContent = number;
     }
     else {
@@ -129,7 +129,12 @@ window.addEventListener('keydown', (event) => {
         appendNumber(key);
     }
     else if (['/', '*', '-', '+'].includes(key)) {
-        setOperator(key);
+        if (currentOutput.textContent !== '' && operator === null) {
+            operand1 = currentOutput.textContent;
+            operator = key;
+            currentOutput.textContent = '';
+            previousOutput.textContent = `${operand1} ${operator}`;
+        }
     }
     else if (key === 'Enter' || key === '=') {
         calculate();
