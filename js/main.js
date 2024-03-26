@@ -121,6 +121,7 @@ deleteButton.addEventListener('click', deleteLast);
 allClearButton.addEventListener('click', clear);
 equalsButton.addEventListener('click', calculate);
 
+/* Keyboard support */
 window.addEventListener('keydown', (event) => {
     const key = event.key;
 
@@ -133,7 +134,7 @@ window.addEventListener('keydown', (event) => {
     else if (key === 'Enter' || key === '=') {
         calculate();
     }
-    else if (key === 'Backspace') {
+    else if (key === 'Backspace' || key === 'Delete') {
         deleteLast();
     }
     else if (key === 'Escape') {
