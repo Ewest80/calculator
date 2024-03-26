@@ -30,6 +30,10 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   background-color: var(--background-clr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
 
 /** Main **/
@@ -38,7 +42,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  flex-grow: 1;
 }
 
 .main .info {
@@ -140,4 +144,19 @@ body {
 
 .buttons .btn-wide {
   width: 174px;
+}
+
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-Shrink: 0;
+  height: 60px;
+  background-color: var(--calculator-clr);
+}
+
+.footer p {
+  font-size: 18px;
+  color: var(--font-clr);
 }
