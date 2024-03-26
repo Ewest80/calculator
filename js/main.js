@@ -129,12 +129,7 @@ window.addEventListener('keydown', (event) => {
         appendNumber(key);
     }
     else if (['/', '*', '-', '+'].includes(key)) {
-        if (currentOutput.textContent !== '' && operator === null) {
-            operand1 = currentOutput.textContent;
-            operator = key;
-            currentOutput.textContent = '';
-            previousOutput.textContent = `${operand1} ${operator}`;
-        }
+        setOperator(key);
     }
     else if (key === 'Enter' || key === '=') {
         calculate();
