@@ -47,7 +47,7 @@ body {
   padding: 20px;
   background-color: var(--calculator-clr);
   border: 2px solid var(--border-clr);
-  border-radius: 10px;
+  border-radius: 20px;
   box-shadow: 10px 10px 20px var(--light-shadow);
 }
 
@@ -57,7 +57,7 @@ body {
   justify-content: space-between;
   align-items: flex-end;
   height: 100px;
-  width: 350px;
+  width: 356px;
   border: 2px solid var(--border-clr);
   border-radius: 8px;
   padding: 5px 10px;
@@ -79,15 +79,15 @@ body {
 .calculator .buttons {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  row-gap: 8px;
 }
 
 /** Button **/
 .buttons .btn {
-  width: 80px;
-  height: 80px;
+  width: 83px;
+  height: 83px;
   cursor: pointer;
   font-size: 32px;
   outline: none;
@@ -132,5 +132,5 @@ body {
 }
 
 .buttons .btn-wide {
-  width: 170px;
+  width: 174px;
 }
